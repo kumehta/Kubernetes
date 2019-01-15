@@ -1,0 +1,16 @@
+ # Perhaps more interesting is that targetPort can be a string, referring to the name of a port in the backend Pods.
+ # The actual port number assigned to that name can be different in each backend Pod
+ # Kubernetes Services support TCP, UDP and SCTP for protocols. The default is TCP
+
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: MyApp
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 9376
